@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+   New Perspectives on XML
+   Tutorial 3
+   Case Problem 2
+
+   MDPBA schema
+   Author: Janna Thomas
+   Date:   2/17/2021
+
+   Filename:          mdpba.xsd
+   Supporting Files:  mdpba.xml
+ 
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+    <!-- Step 4-->
+    <xs:simpleType name="gradeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="novice" />
+            <xs:enumeration value="juvenille" />
+            <xs:enumeration value="1" />
+            <xs:enumeration value="2" />
+            <xs:enumeration value="3" />
+            <xs:enumeration value="4" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="eType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="MSR" />
+            <xs:enumeration value="Medley" />
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="cidType">
+        <xs:restriction base="xs:ID">
+            <xs:pattern value="c\d{4}" />
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="srcType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z0-9]+.png" />
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <!-- Step 5 -->
+    <xs:element name="bands">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="band" minOccurs="1" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <!--Step 6-->
+    <xs:element name="name">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute ref="grade" use="required" />
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="band">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="name"/>
+                <xs:element ref="city"  />
+                <xs:element ref="logo" minOccurs="0"  maxOccurs="unbounded"/>
+                <xs:element ref="competition"  />
+            </xs:sequence>
+             <xs:attribute ref="cid" use="required" />
+        </xs:complexType>
+    </xs:element>
+    
+    <!--Step 7-->
+    <xs:element name="logo">
+        <xs:complexType>
+            <xs:attribute ref="source" />
+        </xs:complexType>
+    </xs:element>
+    
+    <!-- Step 8-->
+    <xs:element  name="competition">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="event" minOccurs="1" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <!-- Step 9-->
+    <xs:element name="event">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tune" minOccurs="1" maxOccurs="unbounded" />
+            </xs:sequence>
+            <xs:attribute ref="type" use="required" />
+        </xs:complexType>
+    </xs:element>
+    
+    <!--Step 10-->
+    <xs:attribute name="grade" type="gradeType" />
+    <xs:attribute name="type" type="eType" />
+    <xs:attribute name="cid" type="cidType" />
+    <xs:attribute name="source" type="srcType" />
+    <xs:element name="city" type="xs:string" />
+    <xs:element name="tune" type="xs:string" />
+
+</xs:schema>

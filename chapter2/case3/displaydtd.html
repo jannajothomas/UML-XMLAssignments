@@ -1,0 +1,53 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+  
+    <title>CH2-C3 DTD </title>
+    <meta name="created" content="2021-01-25">
+    <meta name="application-name" content="Janna Thomas XML Assignments" />
+    <meta name="author" content="Janna Thomas" />
+    <meta name="dcterms.title" content="Janna Thomas XML" />
+    <meta name="dcterms.contributor" content="Janna Thomas" />
+    <meta name="dcterms.creator" content="Janna Thomas" />
+   
+    <link href = "projectStyle.css?rnd=23" rel = "stylesheet" type = "text/css" />
+    
+  </head>
+  
+  <body>
+    <p>"
+    <!--
+   New Perspectives on XML
+   Tutorial 2
+   Case Problem 3
+
+   The Save Exotic Animals Trust DTD
+   Author: Janna Thomas
+   Date:   2/4/2021
+
+   Filename:          seatrust.dtd
+   Supporting file:   roster.xml
+-->
+
+   <!ELEMENT roster (donor+)>
+   <!ELEMENT donor (name, address, phone+, email?, donation, method, effectiveDate)>
+   <!ATTLIST donor level (friendship|patron|sponsor|founder) #REQUIRED>
+   
+   <!ELEMENT name (#PCDATA)>
+   
+   <!ELEMENT address (#PCDATA)>
+   
+   <!ELEMENT phone (#PCDATA)>
+   <!ATTLIST phone type (home|work|cell) #REQUIRED>
+   
+   <!ELEMENT email (#PCDATA)>
+   
+   <!ELEMENT donation (#PCDATA)>
+   
+   <!ELEMENT method (#PCDATA)>
+   
+   <!ELEMENT effectiveDate (#PCDATA)>"
+    </p>
+  </body>
+</html>
