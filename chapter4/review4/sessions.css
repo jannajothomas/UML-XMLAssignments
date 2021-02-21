@@ -1,0 +1,31 @@
+/*
+   New Perspectives on XML
+   Tutorial 4
+   Review Assignments
+
+   Author: Janna Thomas
+   Date:   2/18/2021
+
+   Filename: sessions.css
+
+   This file contains styles used in the psatsessions.xml file.
+*/
+@namespace "http://example.com/higheredtestprep/sessions/ns";
+
+session {
+   display: block;
+}
+sessNum {
+   font-size: 18pt; 
+   color: red;
+   display: inline-block;
+   margin-left: 20px;
+}
+description {
+   font-size: 14pt;
+   color: black;
+   font-family: Times New Roman, Times, serif;
+   margin-left: 10px;
+   display: inline-block;
+     
+}
