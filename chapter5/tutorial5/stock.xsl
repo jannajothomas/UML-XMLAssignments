@@ -42,6 +42,14 @@
                     <h1>Chesterton Financial</h1>
                     <h2>Portfolio Stocks</h2>
                 </header>
+                
+                                <section>
+                    <h1>Utilities</h1>
+                        <xsl:apply-templates select="portfolio/stock[category='Utilities']">
+                            <xsl:sort select="sName" />
+                    </xsl:apply-templates>
+                </section>
+                
                 <section>
                     <h1>Industrials</h1>
                     <xsl:apply-templates select="portfolio/stock[category='Industrials']">
@@ -49,15 +57,12 @@
                     </xsl:apply-templates>
                 </section>
                 
-                <section>
-                    <h1>Utilities</h1>
-                        <xsl:apply-templates select="portfolio/stock[category='Utilities']">
-                    </xsl:apply-templates>
-                </section>
+
                 
                 <section>
                     <h1>Transportation</h1>
                         <xsl:apply-templates select="portfolio/stock[category='Transportation']">
+                            <xsl:sort select="sName" />
                     </xsl:apply-templates>
                 </section>
             </body>
