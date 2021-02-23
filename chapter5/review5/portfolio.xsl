@@ -95,19 +95,19 @@
         <table>
             <tr>
                 <th>Web Address</th>
-                <td><a href="{sName/@link}">text<xsl:value-of select="@link" /></a></td>
+                <td><a href="{link}"><xsl:value-of select="link" /></a></td>
             </tr>
             <tr>
                 <th>52 wk. Range</th>
-                <td><xsl:value-of select="@low" /> - <xsl:value-of select="@high" /></td>
+                <td><xsl:value-of select="low" /> - <xsl:value-of select="high" /></td>
             </tr>
             <tr>
                 <th>EPS</th>
-                <td><xsl:value-of select="@eps" /></td>
+                <td><xsl:value-of select="eps" /></td>
             </tr>
             <tr>
                 <th>Div. and Yield</th>
-                <td><xsl:value-of select="sName/@dividend" /> (<xsl:value-of select="@yield" />)</td>
+                <td><xsl:value-of select="dividend" /> (<xsl:value-of select="yield" />)</td>
             </tr>
         </table>
     </xsl:template>
@@ -119,13 +119,13 @@
             <h1><xsl:value-of select="sName" />(<xsl:value-of select="symbol" />)</h1>
             
             <xsl:choose>
-                <xsl:when test="@current &lt; @open">
+                <xsl:when test="today/@current &lt; today/@open">
                     <h2 class="down">
                         <img src="down.png" alt="down" />
                     </h2>
                     <p><xsl:value-of select="description" /></p>
                 </xsl:when>
-                <xsl:when test="@current > @open">
+                <xsl:when test="today/@current > today/@open">
                     <h2 class="up">
                         <img src="up.png" alt="up" />
                     </h2>
